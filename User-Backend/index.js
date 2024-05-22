@@ -19,6 +19,12 @@ app.use(cors({origin: '*'}));
 
 app.use('/uploads', express.static('Storage/images'));
 
+//middlewares
+app.use(express.static('public'));
+app.get('/',(req,res)=>{
+  res.sendFile(path.join(__dirname,'public/index.html'));
+})
+
 //base route
 app.use('/api', routes);
 
